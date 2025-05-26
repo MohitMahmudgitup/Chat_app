@@ -2,10 +2,11 @@ import React from 'react'
 import { ComposIcons } from "../../assets/icons/ComposIcons.js";
 import SideUserCart from '../common/SideUserCart.js';
 const Sidebar = () => {
+    const cartItems = new Array(20).fill({});
     return (
-        <div className=" w-1/3 h-screen text-white py-4 px-2">
-            <div className=' bg-[#1F1F1F]  w-full h-full p-1 rounded-lg shadow-2xl'>
-                <div className='p-2'>
+        <div className=" w-1/2 h-screen text-white py-4 px-2">
+            <div className=' bg-[#1F1F1F]  w-full h-full  rounded-lg shadow-2xl'>
+                <div className=' px-5 py-2'>
                     <div className='flex items-center justify-between'>
                         <h2 className='text-2xl font-bold f1 '>Chats</h2>
                         <div className='relative group bg-[#474747] pl-2 rounded-full flex items-center justify-center w-10 h-10 cursor-pointer hover:bg-[#575757] '>
@@ -19,11 +20,10 @@ const Sidebar = () => {
                         <input type="text" placeholder='Search' className='w-full bg-transparent outline-none text-white' />    
                     </div>
                 </div>
-                <div className='flex flex-col mt-4 h-[calc(100%-80px)] overflow-y-auto'>
-                <SideUserCart />
-                <SideUserCart />
-                <SideUserCart />
-                <SideUserCart />
+               <div className='flex flex-col mt-4 h-[73vh] overflow-y-scroll custom-scrollbar px-1'> 
+                    {cartItems.map((item, index) => (
+                        <SideUserCart key={index} {...item} />
+                    ))}
                 </div>
             </div>
         </div>
