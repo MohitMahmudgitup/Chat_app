@@ -45,7 +45,6 @@ export const registerUser = async (req, res) => {
     res.status(201).json({
         success: true,
         massage: 'User registered successfully',
-        error: false,
         user ,
         token: generateToken(user._id),
     });
