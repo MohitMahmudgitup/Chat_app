@@ -12,13 +12,24 @@ const generateToken = (userId) => {
 // Register New User
 export const registerUser = async (req, res) => {
   try {
-    const { username, email, password, profilePic, age } = req.body;
+    const { username, email, password, confirmpassword, profilePic, age } = req.body;
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ message: 'User already exists' });
+      return res.status(400).json({ success:false, error:true, message: 'User already exists' });
     }
-
+    if (password !== confirmpassword) {
+      return res.status(400).json({ success:false, error:true, message: 'Passwords do not match' });
+    }
+    if (age < 13) {
+      return res.status(400).json({ success:false, error:true, message: 'You must be at least 13 years old to register' });
+    }
+    if (!username || !email || !password || !confirmpassword || !age) {
+      return res.status(400).json({ success:false, error:true, message: 'Please fill in all fields' });
+    }
+    if (password.length < 6) {
+      return res.status(400).json({ success:false, error:true, message: 'Password must be at least 6 characters long' });
+    }
     // Hash password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
