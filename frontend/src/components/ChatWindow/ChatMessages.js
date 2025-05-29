@@ -1,7 +1,7 @@
 import React from 'react'
-import ChatMessagesNavber from '../common/ChatMessagesNavber'
-import ChatMessagesbuttom from '../common/ChatMessagesbuttom'
-import Massages from '../common/Massages'
+import ChatMessagesNavber from '../msgComponents/ChatMessagesNavber'
+import ChatMessagesbuttom from '../msgComponents/ChatMessagesbuttom'
+import Massages from '../msgComponents/Massages'
 
 const ChatMessages = () => {
   return (

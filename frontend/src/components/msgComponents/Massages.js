@@ -1,9 +1,7 @@
-import React from 'react';
-
 const Messages = () => {
-  // Dummy message array
+
   const messages = [
-    { id: 1, text: "Hello! How are you?", sender: "other" , time: '12:45',time: '12:45',},
+    { id: 1, text: "Hello! How are you?", sender: "other" , time: '12:45'},
     { id: 2, text: "I'm good, thanks! And you?", sender: "me",time: '12:451',},
     { id: 3, text: "Doing great! Working on a project.", sender: "other",time: '12:45',},
     { id: 4, text: "Awesome, good luck!", sender: "me",time: '12:452',},
@@ -14,7 +12,7 @@ const Messages = () => {
     { id: 1, text: "Hello! How are you?", sender: "other",time: '12:45',},
     { id: 2, text: "I'm good, thanks! And you?", sender: "me",time: '12:45',},
     { id: 3, text: "Doing great! Working on a project.", sender: "other",time: '12:45',},
-    { id: 4, text: "Awesome, good luck!", sender: "me",time: '12:45',},
+    { id: 4, text: "Awesome, good luck!", sender: "me",time: '12:45',}, 
     { id: 1, text: "Hello! How are you?", sender: "other",time: '12:45',},
     { id: 2, text: "I'm good, thanks! And you?", sender: "me",time: '12:45',},
     { id: 3, text: "Doing great! Working on a project.", sender: "other",time: '12:45',},

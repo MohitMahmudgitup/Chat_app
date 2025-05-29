@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComposIcons } from "../../assets/icons/ComposIcons.js";
-import SideUserCart from '../common/SideUserCart.js';
+import SideUserCart from '../msgComponents/SideUserCart.js';
 const Sidebar = () => {
     const cartItems = new Array(20).fill({});
     return (

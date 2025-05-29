@@ -1,4 +1,3 @@
-import React from 'react'
 import ChatMessages from '../components/ChatWindow/ChatMessages'
 import Sidebar from '../components/Sidebar/Sidebar'
 
