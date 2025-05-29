@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom"
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Register = () => {
+const Login = () => {
   return (
-    <section className='flex  h-[160vh]'>
+       <section className='flex  h-[160vh]'>
       <div className='flex flex-col  text-white w-[50%] h-full pl-20 pt-40'>
         <div>
             <h1 className="text-[6vw] f1 font-bold text-[#0866FF] leading-[90px] mb-4">
@@ -14,21 +15,23 @@ const Register = () => {
             <p className='text-[#7E6A6C] text-[1.3vw] font-medium f3 pt-3 '>Messenger helps you connect with your Facebook friends and family, build your community and deepen your interests.</p>
         </div>
         <div className=''>
-          <div className='w-[300px] pt-7 relative '>
+          <div className='w-[340px] pt-7 relative'>
             <form>
-              <input type="text" placeholder="Username" className="w-full px-5 py-2 mb-2 text-sm  rounded-xl bg-[#f1f1f1] f1 placeholder-slate-600 border border-transparent focus:outline-none focus:border-blue-500" />
               <input type="email" placeholder="Email address" className="w-full px-5 py-2 mb-2 text-sm  rounded-xl bg-[#f1f1f1] f1 placeholder-slate-600 border border-transparent focus:outline-none focus:border-blue-500" />
               <input type="password" placeholder="Password" className="w-full px-5 py-2 mb-2  text-sm rounded-xl bg-[#f1f1f1] f1 placeholder-slate-600 border border-transparent focus:outline-none focus:border-blue-500" />
-              <button type="submit" className="w-48 bg-[#0866FF] hover:bg-blue-500 text-white p-2 mt-6  text-xl font-semibold rounded-full">Create in register</button>
+              <button type="submit" className="w-24 bg-[#0866FF] hover:bg-blue-500 text-white p-2 mt-6  text-xl font-semibold rounded-full">Log In</button>
             </form>
-            <div className='flex justify-between items-center mt-4 absolute bottom-0 right-0 pb-2 '>
-                <Link to={"/login"} className='text-sm font-semibold f3 text-[#0866FF] hover:underline'>Log in</Link>
+            <div className='flex justify-between items-center mt-4 absolute bottom-14 right-0 pb-2 '>
+                <Link to={"/forget-password"} className='text-sm font-semibold f3 text-[#0866FF] hover:underline'>Forgotten your password?</Link>
             </div>
+            <div className='flex justify-between items-center mt-7  '>
+                <Link to={"/register"} className='text-[1.2vw] font-semibold f3 text-[#0866FF] underline'>Register</Link>
+            </div> 
           </div>
-        </div>
-        <div className='flex gap-4 items-center mt-7'>
-          <a target="_blank" href="https://apps.apple.com/us/app/messenger/id454638411"><img src="https://static.xx.fbcdn.net/rsrc.php/v4/ym/r/E0Xmh71WBR7.png" alt="Register Logo" /></a> 
+                  <div className='flex gap-4 items-center mt-7'>
+           <a target="_blank" href="https://apps.apple.com/us/app/messenger/id454638411"><img src="https://static.xx.fbcdn.net/rsrc.php/v4/ym/r/E0Xmh71WBR7.png" alt="Register Logo" /></a> 
           <a target="_blank" href="https://play.google.com/store/apps/details?id=com.facebook.orca&pli=1"><img src="https://static.xx.fbcdn.net/rsrc.php/v4/y6/r/FYeWLpKTZJc.png" alt="Register Logo" /></a> 
+        </div>
         </div>
       </div>
       <div  className=' pt-20'>
@@ -38,4 +41,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default Login

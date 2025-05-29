@@ -1,10 +1,11 @@
 import React from 'react'
+import LoginMeggages from '../components/ChatWindow/LoginMeggages'
 
 const Login = () => {
   return (
-    <div>
-    Login
-    </div>
+    <main className='bg-[#FFFFFF] h-screen '>
+      <LoginMeggages/>
+    </main>
   )
 }
 
