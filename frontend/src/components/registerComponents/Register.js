@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HiPlusSmall } from "react-icons/hi2";
 import { useRef, useState } from "react";
 import axios from "axios"; 
+import { toast } from 'react-toastify';
 
 const Register = () => {
   const inputRaf = useRef();
@@ -13,6 +14,7 @@ const Register = () => {
     age: "",
     image: null,
   });
+  const navigate = useNavigate();
 
   const handleClick = (e) => {
     const { name, value } = e.target;
@@ -55,10 +57,12 @@ const handleSubmit = async (e) => {
         "Content-Type": "multipart/form-data",
       },
     });
-
-    console.log("Server response:", res.data);
-    // Optional: show toast, navigate, etc.
-
+    if (res.data.success) {
+      toast.success(res.data.message);
+      navigate("/login");
+    }else{
+      toast.error(res.data.message);
+    }
   } catch (err) {
     console.error("Error submitting form:", err);
   }
