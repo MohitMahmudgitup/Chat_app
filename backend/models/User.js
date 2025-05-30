@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     min: 13,
     required: [true, 'Please enter a age'],
   },
-  profilePic: {
+  image: {
     type: String,
     default: '',
   },

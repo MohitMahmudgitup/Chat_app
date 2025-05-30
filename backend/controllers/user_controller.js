@@ -12,19 +12,17 @@ const generateToken = (userId) => {
 // Register New User
 export const registerUser = async (req, res) => {
   try {
-    const { username, email, password, confirmpassword, profilePic, age } = req.body;
+    const { username, email, password, age } = req.body;
+    const image = req.file ? req.file.filename : null;
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ success:false, error:true, message: 'User already exists' });
     }
-    if (password !== confirmpassword) {
-      return res.status(400).json({ success:false, error:true, message: 'Passwords do not match' });
-    }
-    if (age < 13) {
+    if (age < 16) {
       return res.status(400).json({ success:false, error:true, message: 'You must be at least 13 years old to register' });
     }
-    if (!username || !email || !password || !confirmpassword || !age) {
+    if (!username || !email || !password || !age) {
       return res.status(400).json({ success:false, error:true, message: 'Please fill in all fields' });
     }
     if (password.length < 6) {
@@ -39,17 +37,18 @@ export const registerUser = async (req, res) => {
       email,
       password: hashedPassword,
       age,
-      profilePic,
+      image
     });
+    const { password: _, ...userWithoutPassword } = user._doc;
 
     res.status(201).json({
         success: true,
-        massage: 'User registered successfully',
-        user ,
+        message: 'User registered successfully',
+        user : userWithoutPassword,
         token: generateToken(user._id),
     });
   } catch (error) {
-    res.status(500).json({ message: 'Server error', error  });
+    res.status(500).json({ message: 'Server error', error : error.message  });
   }
 };
 
